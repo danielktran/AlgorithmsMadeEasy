@@ -15,14 +15,15 @@ public class Util
 	 * @return valid selection
 	 */
 	
-	public static int checkUserInput(String question, String[] choices) 
+	public static int checkUserInput(String prompt, String[] choices) 
 	{
 		Scanner in = new Scanner(System.in);
-		int response = -1;
+		int answer = -1;
 		
 		do 
 		{
+			System.out.println("\n" + prompt);
 			
-		} while (response <= 0 || response > choices.length);
+		} while (answer <= 0 || answer > choices.length);
 	}
 }
