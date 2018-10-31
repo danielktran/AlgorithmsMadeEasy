@@ -39,9 +39,7 @@ public class Algorithms
 				System.out.println(searchFor + " is not contained within the list");
 			}
 			
-			String [] menu = {"Yes", "No"};
-			int repeatResponse = Util.checkUserInputMenu("Would you like to create a new"
-					+ " list and try again?", menu);
+			int repeatResponse = Util.repeatFunction();
 			if(repeatResponse == 2)
 			{
 				running = false;
@@ -65,10 +63,12 @@ public class Algorithms
 		
 		while(running)
 		{
-			int response = Util.checkUserInputInt("How many integers would you like in your list?");
+			int response = Util.checkUserInputInt("How many integers would you like in"
+					+ " your list?");
 			int [] array = createArray(response);
 			sortArray(array);
-			int searchFor = Util.checkUserInputChoice("What number would you like to search for?");
+			int searchFor = Util.checkUserInputChoice("What number would you like to"
+					+ " search for?");
 			int check = 0;	// Used to determine if a value is ever found in the list
 			
 			
@@ -106,14 +106,17 @@ public class Algorithms
 		
 		while(running)
 		{
-			int response = Util.checkUserInputInt("How many integers would you like in your list?");
+			int response = Util.checkUserInputInt("How many integers would you like in"
+					+ " your list?");
 			int [] array = createArray(response);
 			System.out.println("Sorting started");
 			
-			for(int i = 0; i < array.length; i++)
-			{
-				
-			}
+			
+			System.out.println("Left array: ");
+			
+			System.out.println("Right array: ");
+			
+			System.out.println("Sorted array: ");
 		}
 	}
 	

@@ -119,4 +119,12 @@ public class Util
 		
 		return answer;
 	}
+	
+	public static int repeatFunction()
+	{
+		String [] menu = {"Yes", "No"};
+		int answer = checkUserInputMenu("Would you like to create a new list and"
+				+ " try again?", menu);
+		return answer;
+	}
 }
