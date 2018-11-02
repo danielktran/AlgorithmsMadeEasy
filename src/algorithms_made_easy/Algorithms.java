@@ -100,8 +100,9 @@ public class Algorithms
 				+ "An efficient sorting algorithm with an average low\n"
 				+ "computation time even in the worst case scenario.\n"
 				+ "Using a divide and conquer strategy, the algorithm\n"
-				+ "divides the list in half and is placed back together\n"
-				+ "in a sorted manner.\n"
+				+ "divides the list in half repeatedly until each"
+				+ "array contains only one element each and is placed "
+				+ "back together in a sorted manner.\n"
 				+ "BigO: O(nlogn)\n");
 		
 		while(running)
@@ -109,14 +110,15 @@ public class Algorithms
 			int response = Util.checkUserInputInt("How many integers would you like in"
 					+ " your list?");
 			int [] array = createArray(response);
-			System.out.println("Sorting started");
+			System.out.println("Sorting started.");
 			
+			int [] sort = MergeSort.sort(array);
 			
-			System.out.println("Left array: ");
-			
-			System.out.println("Right array: ");
-			
-			System.out.println("Sorted array: ");
+			int repeatResponse = Util.repeatFunction();
+			if(repeatResponse == 2)
+			{
+				running = false;
+			}
 		}
 	}
 	
