@@ -18,7 +18,7 @@ public class Algorithms
 		boolean running = true;
 		System.out.println("Linear Search:\n"
 				+ "The simplest search algorithm that iterates through a given array\n"
-				+ "looking for the targetted element within the array\n"
+				+ "looking for the targetted element; not a sorted list.\n"
 				+ "BigO: O(n) - great for short lists, not so much for long lists");
 		
 		while(running)
@@ -48,7 +48,6 @@ public class Algorithms
 				running = false;
 			}
 		}
-		
 	}
 	/**
 	 * Function for a binary search using an efficient sort method for small short lists
@@ -71,9 +70,27 @@ public class Algorithms
 			int [] array = createArray(response);
 			int searchFor = Util.checkUserInputChoice("What number would you like to"
 					+ " search for?");
-			int check = 0;	// Used to determine if a value is ever found in the list
 			
+			System.out.println("Sorting started.");
+			int [] sort = MergeSort.sort(0, array.length-1, array);
+			printSortedArray(array);
+			System.out.println();	//Formatting
 			
+			int binarySearch = BinarySearch.binarySearch(0, array.length-1, searchFor, array);
+			if(binarySearch == -1)
+			{
+				System.out.println(searchFor + " is not contained within the list");
+			}
+			else
+			{
+				System.out.println(searchFor + " found at index " + binarySearch);
+			}
+			
+			int repeatResponse = Util.repeatFunction();
+			if(repeatResponse == 2)
+			{
+				running = false;
+			}
 		}
 	}
 	
@@ -113,8 +130,8 @@ public class Algorithms
 			int response = Util.checkUserInputInt("How many integers would you like in"
 					+ " your list?");
 			int [] array = createArray(response);
-			System.out.println("\nSorting started.");
 			
+			System.out.println("\nSorting started.");
 			int [] sort = MergeSort.sort(0, array.length-1, array);
 			printSortedArray(sort);
 			
@@ -166,6 +183,10 @@ public class Algorithms
 		return array;
 	}
 	
+	/**
+	 * Function to print out a sorted array
+	 * @param array. sorted array
+	 */
 	public static void printSortedArray(int [] array)
 	{
 		int [] sortedArray = new int[array.length];
