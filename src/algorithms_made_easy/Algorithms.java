@@ -62,14 +62,13 @@ public class Algorithms
 				+ "Will eliminate the half portion that does not contain the\n"
 				+ "specified element being searched comparing if value is\n"
 				+ "larger or smaller.\n"
-				+ "BigO: O(logn)\n");
+				+ "BigO: O(logn)");
 		
 		while(running)
 		{
 			int response = Util.checkUserInputInt("How many integers would you like in"
 					+ " your list?");
 			int [] array = createArray(response);
-			sortArray(array);
 			int searchFor = Util.checkUserInputChoice("What number would you like to"
 					+ " search for?");
 			int check = 0;	// Used to determine if a value is ever found in the list
@@ -106,17 +105,20 @@ public class Algorithms
 				+ "divides the list in half repeatedly until each"
 				+ "array contains only one element each and is placed "
 				+ "back together in a sorted manner.\n"
-				+ "BigO: O(nlogn)\n");
+				+ "BigO: O(nlogn) - considered one of the best in all"
+				+ "aspects due to the runtime.");
 		
 		while(running)
 		{
 			int response = Util.checkUserInputInt("How many integers would you like in"
 					+ " your list?");
 			int [] array = createArray(response);
-			System.out.println("Sorting started.");
+			System.out.println("\nSorting started.");
 			
-			int [] sort = MergeSort.sort(array);
+			int [] sort = MergeSort.sort(0, array.length-1, array);
+			printSortedArray(sort);
 			
+			System.out.println();	//Formatting
 			int repeatResponse = Util.repeatFunction();
 			if(repeatResponse == 2)
 			{
@@ -164,13 +166,15 @@ public class Algorithms
 		return array;
 	}
 	
-	/**
-	 * This sort function uses a merge sort algorithm as a way
-	 * to sort arrays for other algorithms
-	 * @param array, randomly created array from previous function
-	 */
-	public void sortArray(int [] array)
+	public static void printSortedArray(int [] array)
 	{
+		int [] sortedArray = new int[array.length];
 		
+		System.out.println("Sorted list: ");
+		for(int i = 0; i < array.length; i++)
+		{
+			sortedArray[i] = array[i];
+			System.out.print(sortedArray[i] + " ");
+		}
 	}
 }
