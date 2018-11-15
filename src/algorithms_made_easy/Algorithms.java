@@ -106,7 +106,22 @@ public class Algorithms
 	
 	public void insertionSort()
 	{
+		boolean running = true;
+		System.out.println("Insertion Sort:\n"
+				+ "Simple sorting algorithm similar to how a person\n"
+				+ "sorts a hand of cards."
+				+ "BigO: O(n^2) - can be much faster if only a few/n"
+				+ "elements out of order, but on avergae, slow.");
 		
+		while(running)
+		{
+			int response = Util.checkUserInputInt("How many integers would you like in"
+					+ " your list?");
+			int [] array = createArray(response);
+			
+			System.out.println("\nSorting started.");
+			int [] sort = InsertionSort.insertionSort(array);
+		}
 	}
 	
 	/**
@@ -177,8 +192,8 @@ public class Algorithms
 			int [] array = createArray(response);
 			
 			System.out.println("\nSorting started.");
-			int [] bubbleSort = BubbleSort.bubbleSort(array);
-			printSortedArray(bubbleSort);
+			int [] sort = BubbleSort.bubbleSort(array);
+			printSortedArray(sort);
 			
 			System.out.println();	//Formatting
 			int repeatResponse = Util.repeatFunction();
