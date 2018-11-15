@@ -154,9 +154,39 @@ public class Algorithms
 		
 	}
 	
+	/**
+	 * Function for bubble sort
+	 */
 	public void bubbleSort()
 	{
+		boolean running = true;
+		System.out.println("Bubble Sort:\n"
+				+ "One of the simplest sort algorithms. Continuously\n"
+				+ "swaps adjacent elements until list is sorted. \n"
+				+ "Inefficient due to the nature of having to \n"
+				+ "continuously pass through the list to make sure\n"
+				+ "that the list has been sorted properly.\n"
+				+ "BigO: O(n^2) - Can be fast at O(n) for best \n"
+				+ "case, but on average, passing through too \n"
+				+ "many times.");
 		
+		while(running)
+		{
+			int response = Util.checkUserInputInt("How many integers would you like in"
+					+ " your list?");
+			int [] array = createArray(response);
+			
+			System.out.println("\nSorting started.");
+			int [] bubbleSort = BubbleSort.bubbleSort(array);
+			printSortedArray(bubbleSort);
+			
+			System.out.println();	//Formatting
+			int repeatResponse = Util.repeatFunction();
+			if(repeatResponse == 2)
+			{
+				running = false;
+			}
+		}
 	}
 	
 	public void countingSort()
