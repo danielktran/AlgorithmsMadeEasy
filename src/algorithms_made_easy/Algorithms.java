@@ -50,7 +50,7 @@ public class Algorithms
 		}
 	}
 	/**
-	 * Function for a binary search using an efficient sort method for small short lists
+	 * Function for a binary search using merge sort method for small short lists
 	 */
 	public void binarySearch()
 	{
@@ -71,7 +71,7 @@ public class Algorithms
 			int searchFor = Util.checkUserInputChoice("What number would you like to"
 					+ " search for?");
 			
-			System.out.println("Sorting started.");
+			//Using merge sort to sort list before searching
 			int [] sort = MergeSort.sort(0, array.length-1, array);
 			printSortedArray(array);
 			System.out.println();	//Formatting
@@ -104,14 +104,17 @@ public class Algorithms
 		
 	}
 	
+	/**
+	 * Function for insertion sort
+	 */
 	public void insertionSort()
 	{
 		boolean running = true;
 		System.out.println("Insertion Sort:\n"
 				+ "Simple sorting algorithm similar to how a person\n"
 				+ "sorts a hand of cards."
-				+ "BigO: O(n^2) - can be much faster if only a few/n"
-				+ "elements out of order, but on avergae, slow.");
+				+ "BigO: O(n^2) - can be much faster if only a few\n"
+				+ "elements out of order, but on average, slow.");
 		
 		while(running)
 		{
@@ -119,8 +122,15 @@ public class Algorithms
 					+ " your list?");
 			int [] array = createArray(response);
 			
-			System.out.println("\nSorting started.");
 			int [] sort = InsertionSort.insertionSort(array);
+			printSortedArray(sort);
+			
+			System.out.println();	//Formatting
+			int repeatResponse = Util.repeatFunction();
+			if(repeatResponse == 2)
+			{
+				running = false;
+			}
 		}
 	}
 	
@@ -146,7 +156,6 @@ public class Algorithms
 					+ " your list?");
 			int [] array = createArray(response);
 			
-			System.out.println("\nSorting started.");
 			int [] sort = MergeSort.sort(0, array.length-1, array);
 			printSortedArray(sort);
 			
@@ -191,7 +200,6 @@ public class Algorithms
 					+ " your list?");
 			int [] array = createArray(response);
 			
-			System.out.println("\nSorting started.");
 			int [] sort = BubbleSort.bubbleSort(array);
 			printSortedArray(sort);
 			
@@ -236,7 +244,7 @@ public class Algorithms
 	{
 		int [] sortedArray = new int[array.length];
 		
-		System.out.println("Sorted list: ");
+		System.out.println("\n\nSorted list: ");
 		for(int i = 0; i < array.length; i++)
 		{
 			sortedArray[i] = array[i];
